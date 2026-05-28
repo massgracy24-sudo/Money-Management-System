@@ -1,0 +1,101 @@
+.login-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  font-family: Arial, sans-serif;
+}
+
+.login-card {
+  width: 850px;
+  height: 500px;
+  display: flex;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* LEFT SIDE */
+.login-left {
+  flex: 1;
+  padding: 40px;
+  color: white;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+.login-left h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.features {
+  margin-top: 40px;
+}
+
+.features div {
+  margin: 12px 0;
+  font-size: 15px;
+}
+
+/* RIGHT SIDE */
+.login-right {
+  flex: 1;
+  background: white;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-right h2 {
+  margin-bottom: 5px;
+}
+
+.login-right p {
+  color: gray;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: #0072ff;
+  box-shadow: 0 0 5px rgba(0,114,255,0.3);
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin: 10px 0;
+}
+
+button {
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  border: none;
+  padding: 12px;
+  color: white;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.03);
+}
+
+.signup {
+  margin-top: 15px;
+  font-size: 13px;
+  text-align: center;
+}
