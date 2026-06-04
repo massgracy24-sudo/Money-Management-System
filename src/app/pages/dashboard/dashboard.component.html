@@ -1,1 +1,55 @@
-<p>dashboard works!</p>
+<div class="dashboard-wrapper">
+
+  <!-- Background orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <!-- Dashboard Card -->
+  <div class="dash-card">
+
+    <!-- Header -->
+    <div class="dash-header">
+      <div class="logo-circle">🚖</div>
+      <h1 class="dash-title">CabGo Dashboard</h1>
+      <p class="dash-sub">
+        Welcome back, <strong>{{ username }}</strong>!
+        &nbsp;<span class="role-badge">{{ role }}</span>
+      </p>
+    </div>
+
+    <!-- Status message -->
+    <div class="dash-body">
+      <div class="success-box">
+        <span class="success-icon">✅</span>
+        <span>Login successful! You are now authenticated.</span>
+      </div>
+      <p class="coming-soon">🚧 Full dashboard is under construction. More features coming soon.</p>
+    </div>
+
+    <!-- Stats placeholders -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-icon">🚗</span>
+        <span class="stat-label">Total Rides</span>
+        <span class="stat-value">—</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon">👤</span>
+        <span class="stat-label">Drivers</span>
+        <span class="stat-value">—</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon">💰</span>
+        <span class="stat-label">Revenue</span>
+        <span class="stat-value">—</span>
+      </div>
+    </div>
+
+    <!-- Logout -->
+    <button class="logout-btn" (click)="logout()">
+      <span>🚪</span>
+      <span>Logout</span>
+    </button>
+
+  </div>
+</div>

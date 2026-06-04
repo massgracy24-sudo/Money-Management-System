@@ -1,43 +1,161 @@
+<!-- login.component.html -->
+
 <div class="login-wrapper">
 
+  <!-- ✨ Animated floating background orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <!-- 🚖 Floating animated cab icons -->
+  <div class="floating-cab cab-1">🚖</div>
+  <div class="floating-cab cab-2">🚕</div>
+  <div class="floating-cab cab-3">🚗</div>
+  <div class="floating-cab cab-4">🚖</div>
+
+  <!-- 🪟 Glassmorphism Login Card -->
   <div class="login-card">
 
-    <!-- Left Design Panel -->
+    <!-- ═══ LEFT PANEL — Branding Side ═══ -->
     <div class="login-left">
-      <h1>💰 Money Manager</h1>
-      <p>Track income, expenses & grow your savings smartly.</p>
 
-      <div class="features">
-        <div>📊 Reports & Analytics</div>
-        <div>💸 Income & Expense Tracking</div>
-        <div>📅 Monthly Budget Planner</div>
+      <!-- Road animation strip at bottom -->
+      <div class="road-strip">
+        <div class="road-line"></div>
+        <div class="road-line"></div>
+        <div class="road-line"></div>
       </div>
+
+      <!-- Company Logo & Name -->
+      <div class="brand-section">
+        <div class="logo-circle">
+          <span class="logo-icon">🚖</span>
+        </div>
+        <h1 class="company-name">CabGo</h1>
+        <p class="company-tagline">Premium Cab Management System</p>
+      </div>
+
+      <!-- Feature highlights -->
+      <div class="features-list">
+        <div class="feature-item">
+          <span class="feature-icon">📍</span>
+          <span>Real-time GPS Tracking</span>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">👤</span>
+          <span>Driver & Fleet Management</span>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">📊</span>
+          <span>Ride Analytics & Reports</span>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">💳</span>
+          <span>Seamless Payment Gateway</span>
+        </div>
+      </div>
+
+      <!-- Decorative animated cab on road -->
+      <div class="animated-cab">🚖💨</div>
+
     </div>
 
-    <!-- Right Login Panel -->
+    <!-- ═══ RIGHT PANEL — Login Form ═══ -->
     <div class="login-right">
 
-      <h2>Welcome Back 👋</h2>
-      <p>Login to continue</p>
-
-      <input type="text" placeholder="Email or Phone">
-      <input type="password" placeholder="Password">
-
-      <div class="options">
-        <label>
-          <input type="checkbox"> Remember me
-        </label>
-        <a href="#">Forgot Password?</a>
+      <!-- Top greeting -->
+      <div class="welcome-section">
+        <h2 class="welcome-title">Welcome Back</h2>
+        <p class="welcome-sub">Sign in to your CabGo dashboard</p>
       </div>
 
-      <button>Login</button>
+      <!-- Login Form -->
+      <form class="login-form" (ngSubmit)="onLogin()">
 
-      <p class="signup">
-        Don’t have an account? <a href="#">Sign up</a>
-      </p>
+        <!-- Username Field -->
+        <div class="form-group">
+          <label class="form-label" for="username">Username</label>
+          <div class="input-wrapper">
+            <span class="input-icon">👤</span>
+            <input
+              id="username"
+              class="form-input"
+              type="text"
+              placeholder="Enter your username"
+              [(ngModel)]="username"
+              name="username"
+              autocomplete="username"
+            />
+          </div>
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <div class="input-wrapper">
+            <span class="input-icon">🔒</span>
+            <input
+              id="password"
+              class="form-input"
+              [type]="showPassword ? 'text' : 'password'"
+              placeholder="Enter your password"
+              [(ngModel)]="password"
+              name="password"
+              autocomplete="current-password"
+            />
+            <!-- Toggle show/hide password -->
+            <button
+              type="button"
+              class="eye-toggle"
+              (click)="togglePassword()"
+              [title]="showPassword ? 'Hide password' : 'Show password'"
+            >
+              {{ showPassword ? '🙈' : '👁️' }}
+            </button>
+          </div>
+        </div>
+
+        <!-- Remember Me + Forgot Password row -->
+        <div class="form-options">
+          <label class="remember-label">
+            <input
+              type="checkbox"
+              class="remember-checkbox"
+              [(ngModel)]="rememberMe"
+              name="rememberMe"
+            />
+            <span class="checkmark"></span>
+            <span class="remember-text">Remember me</span>
+          </label>
+          <a href="#" class="forgot-link">Forgot Password?</a>
+        </div>
+
+        <!-- Login Button -->
+        <button
+          type="submit"
+          class="login-btn"
+          [class.loading]="isLoading"
+          [disabled]="isLoading"
+        >
+          <span *ngIf="!isLoading" class="btn-content">
+            <span>Login</span>
+            <span class="btn-arrow">→</span>
+          </span>
+          <span *ngIf="isLoading" class="btn-spinner">
+            <span class="spinner"></span>
+            <span>Signing in...</span>
+          </span>
+        </button>
+        <!-- Error Message Display -->
+        <div class="error-message" *ngIf="errorMessage">
+          <span>⚠️ {{ errorMessage }}</span>
+        </div>
+      </form>
+
+      <!-- Footer note -->
+      <p class="powered-by">🔐 Secured & Powered by <strong>CabGo Systems</strong></p>
 
     </div>
 
   </div>
-
 </div>
