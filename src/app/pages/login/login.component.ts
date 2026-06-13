@@ -66,6 +66,23 @@ export class LoginComponent {
     });
   }
 
+  login(): void {
+    this.authService.login(this.username, this.password).subscribe({
+      next: (response) => {
+        this.router.navigate(['/dashboard']);
+      },
+      error: (err) => {
+        this.errorMessage = err.error?.message || 'Login failed';
+      }
+    });
+  }
+
+  // ✅ Paste logout method here
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
+
   togglePassword(): void {
     this.showPassword = !this.showPassword;
   }
